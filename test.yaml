@@ -1,0 +1,20 @@
+---
+
+- name: test
+  hosts: localhost
+  gather_facts: true
+  vars:
+    include_newlines: |
+      exactly as you see
+      will appear these three
+      lines of poetry
+
+    fold_newlines: >
+      this is really a
+      single line of text
+      despite appearances
+  tasks:
+    - name: debug test
+      debug:
+        msg: "{{ include_newlines }} {{ fold_newlines }}"
+
