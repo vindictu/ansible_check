@@ -50,3 +50,28 @@
 1. <font color="#FF0000"> 一般使用: <br> delegate_to: localhost <br> connection: local  <br>指定执行主机等待检测目的节点的端口或文件 </font>
 
 2. <font color="#FF0000"> 可以通过vars覆盖内置变量完成连接参数(port、passwortd等等)的修改 <br> vars: <br> &emsp; ansible_port: 50001</font>
+
+## assert
+### parameters
+- fail_msg: 客户编辑的错误输出。
+	- string
+- success_msg: 客户编辑的正确输出。
+	- string
+- that：条件判断语句，和when相似。
+	- list
+
+## file
+### parameters
+- path: 管理文件、目录的路径。
+	- string
+- state：[absent, directory, file, touch, hard, link]
+	- string
+	- default: file
+- owner: 所属用户。
+	- string
+- group：所属组。
+	- string
+- mode: 文件、目录的权限,u+rwx或u=rw,g=r,o=r。
+- recurse: 与目录模式一起使用，递归修改目录下所有。
+	- boolean
+	- default: no
