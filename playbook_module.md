@@ -28,6 +28,28 @@
 	- string
 	- default: present
 
+## lineinfile
+### parameters
+- path: 操作文件的全路径。
+	- string
+- state: [present, absent] 指定行是增/减操作。
+	- string
+	- default: present
+- regexp：匹配正则表达式
+	- string
+- search_string：字符串匹配，与regexp互斥。
+	- string
+- line：要添加、替换的内容。
+	- string 
+- insertafter：指定line在最后一个匹配行之后插入。
+	- string
+- insertbefore：指定line在最后一个匹配之行前行插入。
+	- string
+- firstmatch: 与insertafter和insertbefore结合使用，更改为第一个匹配行进行判断操作。
+	- boolean
+- create: 是否创建文件。
+	- boolean
+
 
 ## set_fact
 ### parameters
@@ -75,3 +97,8 @@
 - recurse: 与目录模式一起使用，递归修改目录下所有。
 	- boolean
 	- default: no
+
+## raw
+### parameters
+- executable: 更改用于执行命令的 shell。应该是可执行文件的绝对路径。
+	- string
